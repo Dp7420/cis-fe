@@ -1,0 +1,156 @@
+<div class="d-flex justify-content-center align-items-center vh-100 mt-5">
+  <div class="p-5" style="max-width: 1200px; width: 100%;">
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-5">
+      <button type="button" class="btn btn-primary" (click)="goBack()">
+        <i class="fa-solid fa-arrow-left"></i>&nbsp; Back
+      </button>
+      <h4 class="text-center flex-grow-1">Add Customer</h4>
+    </div>
+
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <!-- Column 1 -->
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label for="primaryName" class="form-label">Primary Name:</label>
+            <input type="text" id="primaryName" class="form-control" formControlName="primaryName" placeholder="Primary Name">
+            <div *ngIf="customerForm.get('primaryName')?.invalid && customerForm.get('primaryName')?.touched" class="text-danger">
+              Primary Name is required.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="primaryEmail" class="form-label">Primary Email:</label>
+            <input type="email" id="primaryEmail" class="form-control" formControlName="primaryEmail" placeholder="Primary Email">
+            <div *ngIf="customerForm.get('primaryEmail')?.invalid && customerForm.get('primaryEmail')?.touched" class="text-danger">
+              <div *ngIf="customerForm.get('primaryEmail')?.errors?.['required']">Primary Email is required.</div>
+              <div *ngIf="customerForm.get('primaryEmail')?.errors?.['email']">Enter a valid email.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="primaryMobile" class="form-label">Primary Mobile:</label>
+            <input type="tel" id="primaryMobile" class="form-control" formControlName="primaryMobile" placeholder="Primary Mobile">
+            <div *ngIf="customerForm.get('primaryMobile')?.invalid && customerForm.get('primaryMobile')?.touched" class="text-danger">
+              <div *ngIf="customerForm.get('primaryMobile')?.errors?.['required']">Primary Mobile is required.</div>
+              <div *ngIf="customerForm.get('primaryMobile')?.errors?.['pattern']">Enter a valid 10-digit mobile number.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="mainPerson" class="form-label">Main Person:</label>
+            <input type="text" id="mainPerson" class="form-control" formControlName="mainPerson" placeholder="Main Person">
+          </div>
+          <div class="mb-3">
+            <label for="comTelephone" class="form-label">Company Telephone:</label>
+            <input type="tel" id="comTelephone" class="form-control" formControlName="comTelephone" placeholder="Company Telephone">
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address:</label>
+            <input type="text" id="address" class="form-control" formControlName="address" placeholder="Address">
+          </div>
+          <div class="mb-3">
+            <label for="website" class="form-label">Website:</label>
+            <input type="text" id="website" class="form-control" formControlName="website" placeholder="Website">
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label for="secondaryName" class="form-label">Secondary Name:</label>
+            <input type="text" id="secondaryName" class="form-control" formControlName="secondaryName" placeholder="Secondary Name">
+          </div>
+          <div class="mb-3">
+            <label for="secondaryEmail" class="form-label">Secondary Email:</label>
+            <input type="email" id="secondaryEmail" class="form-control" formControlName="secondaryEmail" placeholder="Secondary Email">
+            <div *ngIf="customerForm.get('secondaryEmail')?.invalid && customerForm.get('secondaryEmail')?.touched" class="text-danger">
+              <div *ngIf="customerForm.get('secondaryEmail')?.errors?.['email']">Enter a valid email.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="secondaryMobile" class="form-label">Secondary Mobile:</label>
+            <input type="tel" id="secondaryMobile" class="form-control" formControlName="secondaryMobile" placeholder="Secondary Mobile">
+            <div *ngIf="customerForm.get('secondaryMobile')?.invalid && customerForm.get('secondaryMobile')?.touched" class="text-danger">
+              <div *ngIf="customerForm.get('secondaryMobile')?.errors?.['pattern']">Enter a valid 10-digit mobile number.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="designation" class="form-label">Designation:</label>
+            <input type="text" id="designation" class="form-control" formControlName="designation" placeholder="Designation">
+          </div>
+          <div class="mb-3">
+            <label for="pan" class="form-label">PAN:</label>
+            <input type="text" id="pan" class="form-control" formControlName="pan" placeholder="PAN">
+          </div>
+          <div class="mb-3">
+            <label for="state" class="form-label">State:</label>
+            <input type="text" id="state" class="form-control" formControlName="state" placeholder="State">
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Category:</label>
+            <select class="form-control" id="category" formControlName="category" (change)="onCategoryChange($event)">
+              <option value="" disabled>Select Category</option>
+              <option *ngFor="let cat of category" [value]="cat.categoryId">{{ cat.categoryName }}</option>
+            </select>
+            <div *ngIf="customerForm.get('category')?.invalid && customerForm.get('category')?.touched" class="text-danger">
+              Category is required.
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label for="companyName" class="form-label">Company Name:</label>
+            <input type="text" id="companyName" class="form-control" formControlName="companyName" placeholder="Company Name">
+            <div *ngIf="customerForm.get('companyName')?.invalid && customerForm.get('companyName')?.touched" class="text-danger">
+              Company Name is required.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="cin" class="form-label">CIN:</label>
+            <input type="text" id="cin" class="form-control" formControlName="cin" placeholder="CIN">
+          </div>
+          <div class="mb-3">
+            <label for="companyEmail" class="form-label">Company Email:</label>
+            <input type="email" id="companyEmail" class="form-control" formControlName="companyEmail" placeholder="Company Email">
+            <div *ngIf="customerForm.get('companyEmail')?.invalid && customerForm.get('companyEmail')?.touched" class="text-danger">
+              <div *ngIf="customerForm.get('companyEmail')?.errors?.['email']">Enter a valid email.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="contactNo" class="form-label">Contact Number:</label>
+            <input type="tel" id="contactNo" class="form-control" formControlName="contactNo" placeholder="Contact Number">
+            <div *ngIf="customerForm.get('contactNo')?.invalid && customerForm.get('contactNo')?.touched" class="text-danger">
+              <div *ngIf="customerForm.get('contactNo')?.errors?.['pattern']">Enter a valid 10-digit contact number.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="gst" class="form-label">GST:</label>
+            <input type="text" id="gst" class="form-control" formControlName="gst" placeholder="GST">
+          </div>
+          <div class="mb-3">
+            <label for="pincode" class="form-label">Pincode:</label>
+            <input type="text" id="pincode" class="form-control" formControlName="pincode" placeholder="Pincode">
+            <div *ngIf="customerForm.get('pincode')?.invalid && customerForm.get('pincode')?.touched" class="text-danger">
+              <div *ngIf="customerForm.get('pincode')?.errors?.['pattern']">Enter a valid 6-digit pincode.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="service" class="form-label">Service:</label>
+            <select class="form-control" id="service" formControlName="service" (change)="onServiceChange($event)">
+              <option value="" disabled>Select Service</option>
+              <option *ngFor="let srv of service" [value]="srv.serviceId">{{ srv.serviceName }}</option>
+            </select>
+            <div *ngIf="customerForm.get('service')?.invalid && customerForm.get('service')?.touched" class="text-danger">
+              Service is required.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary"  >Submit</button>
+        <!-- [disabled]="customerForm.invalid" -->
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+.d-flex {
+  display: flex;
+}
+
+.card {
+  border-radius: 0.25rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border: none;
+  background: linear-gradient(135deg, #a1c8ff, #0a4956);
+}
+/* .col-6{
+  position: absolute;
+  top: 20px;
+  left: 10px;
+} */
+
+.card-title {
+  font-weight: bold;
+  color: #444;
+}
+
+.table {
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.btn-back {
+  background-color: white;
+  border-color: rgba(5, 0, 221);
+  color: rgba(5, 0, 221);
+  font-weight: bold;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-back:hover {
+  background-color: rgba(5, 0, 221);
+  color: white;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.btn {
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(5, 0, 221);
+  border-color: #007bff;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  background-color: white;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  color: rgba(5, 0, 221);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}

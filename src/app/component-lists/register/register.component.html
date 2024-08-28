@@ -1,0 +1,205 @@
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-back" (click)="goBack()">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Please Fill out the Form to Register!</h2>
+    </div>
+  </div>
+  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <div class="row gx-5 justify-content-between">
+      <div class="col-md-5">
+  
+        <div class="form-group">
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" class="form-control" formControlName="fullName" placeholder="Full Name" [(ngModel)]="user.fullName" name="fullName">
+          <div class="text-danger">
+            <div *ngIf="regForm.get('fullName')?.touched && regForm.get('fullName')?.hasError('required')">Full Name is required.</div>
+            <div *ngIf="regForm.get('fullName')?.touched && regForm.get('fullName')?.hasError('minlength')">Full Name must be at least 3 characters long.</div>
+            <div *ngIf="regForm.get('fullName')?.touched && regForm.get('fullName')?.hasError('maxlength')">Full Name cannot be more than 50 characters long.</div>
+            <div *ngIf="regForm.get('fullName')?.touched && regForm.get('fullName')?.hasError('pattern')">Full Name can only contain letters and spaces.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="form-control" formControlName="email" placeholder="Email" [(ngModel)]="user.email" name="email">
+          <div class="text-danger">
+            <div *ngIf="regForm.get('email')?.touched && regForm.get('email')?.hasError('required')">Email is required.</div>
+            <div *ngIf="regForm.get('email')?.touched && regForm.get('email')?.hasError('pattern')">Invalid email format.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password" [(ngModel)]="user.password" name="password">
+          <div class="text-danger">
+            <div *ngIf="regForm.get('password')?.touched && regForm.get('password')?.hasError('required')">Password is required.</div>
+            <div *ngIf="regForm.get('password')?.touched && regForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long.</div>
+          </div>
+        </div>
+
+         
+        <div class="form-group">
+            <label for="Category" class="form-label">Company Name</label>
+            <select class="form-control" id="Category" [(ngModel)]="selectedCategoryId" name="Category" (change)="onCompanyIdChange($event)">
+              <option value="" disabled>Select Category</option>
+              <option *ngFor="let org of org" [value]="org.companyId">{{ org.companyname }}</option>
+            </select>
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('companyName')?.touched && regForm.get('companyName')?.hasError('required')">Company Name is required.</div>
+            <div *ngIf="regForm.get('companyName')?.touched && regForm.get('companyName')?.hasError('minlength')">Company Name must be at least 3 characters long.</div>
+            <div *ngIf="regForm.get('companyName')?.touched && regForm.get('companyName')?.hasError('maxlength')">Company Name cannot be more than 50 characters long.</div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label for="registerNo">Register No:</label>
+          <input type="text" id="registerNo" class="form-control" formControlName="registerNo" placeholder="Register No" [(ngModel)]="user.company.registerNo" [(ngModel)]="organization.registerNo" name="registerNo">
+          <div   class="text-danger">
+            <div *ngIf="regForm.get('registerNo').touched && regForm.get('registerNo').hasError('required')">Register No is required.</div>
+            <div *ngIf="regForm.get('registerNo').touched && regForm.get('registerNo').hasError('pattern')">Register No can only contain letters and numbers.</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label for="contactNo">Contact No:</label>
+          <input type="text" id="contactNo" class="form-control" formControlName="contactNo" placeholder="Contact No" [(ngModel)]="user.company.contactNo" name="contactNo">
+          <div   class="text-danger">
+            <div *ngIf="regForm.get('contactNo').touched && regForm.get('contactNo').hasError('required')">Contact No is required.</div>
+            <div *ngIf="regForm.get('contactNo').touched && regForm.get('contactNo').hasError('pattern')">Invalid Contact No format.</div>
+            <div *ngIf="regForm.get('contactNo').touched && regForm.get('contactNo').hasError('minlength')">Contact No must be 10 digits long.</div>
+            <div *ngIf="regForm.get('contactNo').touched && regForm.get('contactNo').hasError('maxlength')">Contact No cannot be more than 10 digits long.</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" id="address" class="form-control" formControlName="address" placeholder="Address" [(ngModel)]="user.company.address" name="address">
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('address').touched && regForm.get('address').hasError('required')">Address is required.</div>
+            <div *ngIf="regForm.get('address').touched && regForm.get('address').hasError('minlength')">Address must be at least 10 characters long.</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label for="city">City:</label>
+          <input type="text" id="city" class="form-control" formControlName="city" placeholder="city" [(ngModel)]="user.company.city" name="city">
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('city').touched && regForm.get('city').hasError('required')">city is required.</div>
+            <div *ngIf="regForm.get('city').touched && regForm.get('city').hasError('minlength')">city must be at least 2 characters long.</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label for="pincode">PIN Code:</label>
+          <input type="text" id="pincode" class="form-control" formControlName="pincode" placeholder="PIN Code" [(ngModel)]="user.company.pincode" name="pincode">
+          <div   class="text-danger">
+            <div *ngIf="regForm.get('pincode').touched && regForm.get('pincode').hasError('required')">PIN Code is required.</div>
+            <div *ngIf="regForm.get('pincode').touched && regForm.get('pincode').hasError('minlength')">PIN Code must be a 6-digit number.</div>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" class="form-control" formControlName="userName" placeholder="Username" [(ngModel)]="user.userName" name="userName">
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('userName')?.touched && regForm.get('userName')?.hasError('required')">Username is required.</div>
+            <div *ngIf="regForm.get('userName')?.touched && regForm.get('userName')?.hasError('minlength')">Username must be at least 3 characters long.</div>
+            <div *ngIf="regForm.get('userName')?.touched && regForm.get('userName')?.hasError('maxlength')">Username cannot be more than 30 characters long.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mobileNo">Mobile No:</label>
+          <input type="text" id="mobileNo" class="form-control" formControlName="mobile" placeholder="Mobile No" [(ngModel)]="user.mobile" name="mobile">
+          <div   class="text-danger">
+            <div *ngIf="regForm.get('mobile')?.touched && regForm.get('mobile')?.hasError('required')">Mobile No is required.</div>
+            <div *ngIf="regForm.get('mobile')?.touched && regForm.get('mobile')?.hasError('pattern')">Invalid Mobile No format.</div>
+            <div *ngIf="regForm.get('mobile')?.touched && regForm.get('mobile')?.hasError('minlength')">Mobile No must be 10 digits long.</div>
+            <div *ngIf="regForm.get('mobile')?.touched && regForm.get('mobile')?.hasError('maxlength')">Mobile No cannot be more than 10 digits long.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="designation">Designation:</label>
+          <input type="text" id="designation" class="form-control" formControlName="designation" placeholder="Designation" [(ngModel)]="user.designation" name="designation">
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('designation')?.touched && regForm.get('designation')?.hasError('required')">Designation is required.</div>
+            <div *ngIf="regForm.get('designation')?.touched && regForm.get('designation')?.hasError('minlength')">Designation must be at least 3 characters long.</div>
+            <div *ngIf="regForm.get('designation')?.touched && regForm.get('designation')?.hasError('maxlength')">Designation cannot be more than 50 characters long.</div>
+            <div *ngIf="regForm.get('designation')?.touched && regForm.get('designation')?.hasError('pattern')">Designation can only contain letters and spaces.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cin">CIN:</label>
+          <input type="text" id="cin" class="form-control" formControlName="cin" placeholder="CIN" [(ngModel)]="user.cin" name="cin">
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('cin')?.touched && regForm.get('cin')?.hasError('required')">CIN is required.</div>
+            <div *ngIf="regForm.get('cin')?.touched && regForm.get('cin')?.hasError('pattern')">CIN can only contain letters and numbers.</div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label for="dateOfIncorporation">Date of Incorporation:</label>
+          <input type="date" id="dateOfIncorporation" class="form-control" formControlName="dateOfIncorporation" [(ngModel)]="user.company.dateOfIncorporation" name="dateOfIncorporation">
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('dateOfIncorporation').touched && regForm.get('dateOfIncorporation').hasError('required')">Date of Incorporation is required.</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label for="companyMailId">Company Mail ID:</label>
+          <input type="email" id="companyMailId" class="form-control" formControlName="companyEmail" placeholder="Company Mail ID" [(ngModel)]="user.company.companyEmail" name="companyEmail">
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('companyEmail').touched && regForm.get('companyEmail').hasError('required')">Company Mail ID is required.</div>
+            <div *ngIf="regForm.get('companyEmail').touched && regForm.get('companyEmail').hasError('pattern')">Invalid Company Mail ID format.</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label for="telephoneNo">Telephone No:</label>
+          <input type="text" id="telephoneNo" class="form-control" formControlName="telephone" placeholder="Telephone No" [(ngModel)]="user.company.telephone" name="telephone">
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('telephone').touched && regForm.get('telephone').hasError('required')">Telephone No is required.</div>
+            <div *ngIf="regForm.get('telephone').touched && regForm.get('telephone').hasError('pattern')">Telephone No must be 10 digits long.</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label for="state">State:</label>
+          <input type="text" id="state" class="form-control" formControlName="state" placeholder="State" [(ngModel)]="user.company.state" name="state">
+          <div  class="text-danger">
+            <div *ngIf="regForm.get('state').touched && regForm.get('state').hasError('required')">State is required.</div>
+            <div *ngIf="regForm.get('state').touched && regForm.get('state').hasError('minlength')">State must be at least 2 characters long.</div>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label for="website">Website:</label>
+          <input type="url" id="website" class="form-control" formControlName="website" placeholder="Website" [(ngModel)]="user.company" name="website">
+          <div class="text-danger">
+            <div *ngIf="regForm.get('website').touched && regForm.get('website').hasError('required')">Website is required.</div>
+            <div *ngIf="regForm.get('website').touched && regForm.get('website').hasError('pattern')">Invalid website URL.</div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <button type="submit" id="register" class="btn btn-primary">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+

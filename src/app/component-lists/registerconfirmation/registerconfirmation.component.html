@@ -1,0 +1,129 @@
+<div class="modal-dialog-centered">
+  <div class="modal-content text-center w-50">
+    <div class="model-image">
+      <img src="assets/success.png" alt="success" height="80">
+    </div>
+    <div class="modal-header">
+      <h4 class="modal-title">Success!</h4>
+    </div>
+    <div class="modal-body mt-3">
+      <p><b>Your registration was successful!</b><br>
+        Thank you for your request. A confirmation email will be sent to you shortly.</p>
+    </div>
+  <div class="model-footer">
+    <button class="btn text-center w-50 rounded-5 text-light" (click)="close()">close</button>
+  </div>
+  </div>
+</div>
+
+
+<!-- 
+
+ <div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <button class="btn  btn-back" (click)="goBack()">
+          <i class="fa-solid fa-angle-left"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Please Fill out the Form to Register!</h2>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="row gx-5 justify-content-between">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="fullName">Full name:</label>
+          <input type="text" id="fullName" class="form-control" [(ngModel)]="user.fullName" name="fullName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" class="form-control" [(ngModel)]="user.password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="companyCode">Company Code:</label>
+          <input type="text" id="companyCode" [(ngModel)]="organization.companyCode" class="form-control" [(ngModel)]="user.companyCode" name="companyCode" required>
+        </div>
+        <div class="form-group">
+          <label for="companyName">Company Name:</label>
+          <input type="text" id="companyName" class="form-control" [(ngModel)]="user.companyName" name="companyName" required>
+        </div>
+        <div class="mb-3">
+          <label for="Category" class="form-label">Company Name</label>
+          <select class="form-control" id="Category" [(ngModel)]="selectedCategoryId" name="Category" (change)="onCompanyIdChange($event)">
+            <option value="" disabled>Select Category</option>
+            <option *ngFor="let org of org" [value]="org.companyId">{{ org.companyname }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="registerNo">Register No:</label>
+          <input type="text" id="registerNo" [(ngModel)]="organization.registerNo" class="form-control" [(ngModel)]="user.company.registerNo" name="registerNo" required>
+        </div>
+        <div class="form-group">
+          <label for="contactNo">Contact No:</label>
+          <input type="text" id="contactNo" class="form-control" [(ngModel)]="user.company.contactNo" name="contactNo" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" id="address" class="form-control" [(ngModel)]="user.company.address" name="address" required>
+        </div>
+        <div class="form-group">
+          <label for="pinCode">PIN Code:</label>
+          <input type="text" id="pinCode" class="form-control" [(ngModel)]="user.company.pincode" name="pinCode" required>
+        </div>
+      </div>
+      <div class="col-md-5">
+        
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" class="form-control" [(ngModel)]="user.userName" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="mobileNo">Mobile No:</label>
+          <input type="text" id="mobileNo" class="form-control" [(ngModel)]="user.mobile" name="mobileNo" required>
+        </div>
+        <div class="form-group">
+          <label for="designation">Designation:</label>
+          <input type="text" id="designation" class="form-control" [(ngModel)]="user.designation" name="designation" required>
+        </div>
+        <div class="form-group">
+          <label for="cin">CIN:</label>
+          <input type="text" id="cin" [(ngModel)]="organization.cin" class="form-control" [(ngModel)]="user.company.cin" name="cin" required>
+        </div>
+        <div class="form-group">
+          <label for="dateOfIncorporation">Date of Incorporation:</label>
+          <input type="date" id="dateOfIncorporation" [(ngModel)]="organization.dateOfIncorporation" class="form-control" [(ngModel)]="user.company.dateOfIncorporation" name="dateOfIncorporation" required>
+        </div>
+        <div class="form-group">
+          <label for="companyMailId">Company Mail ID:</label>
+          <input type="email" id="companyMailId" class="form-control" [(ngModel)]="user.company.companyEmail" name="companyMailId" required>
+        </div>
+        <div class="form-group">
+          <label for="telephoneNo">Telephone No:</label>
+          <input type="text" id="telephoneNo" class="form-control" [(ngModel)]="user.company.telephone" name="telephoneNo" required>
+        </div>
+        <div class="form-group">
+          <label for="state">State:</label>
+          <input type="text" id="state" class="form-control" [(ngModel)]="user.company.state" name="state" required>
+        </div>
+        <div class="form-group">
+          <label for="website">Website:</label>
+          <input type="url" id="website" class="form-control" [(ngModel)]="user.company.website" name="website" required>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3 mb-4">
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btncolor">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+-->

@@ -1,0 +1,58 @@
+<div class="container w-50 mt-4 p-3">
+  <div class="card bg-body rounded">
+    <div class="card-body container-fluid">
+      <div class="text-center mb-4">
+        <h2>Personal Information</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="primaryName" class="form-label"><b>Full Name:</b></label>
+            <p class="form-control">{{userDetails.fullName}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="primarymobile" class="form-label"><b>Email Id:</b></label>
+            <p class="form-control">{{userDetails.email}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="comTelephone" class="form-label"><b>Role:</b></label>
+            <p class="form-control">{{userDetails.role}}</p>
+          </div>
+          <div class="mb-3" *ngIf="isUser">
+            <label for="companyname" class="form-label"><b>Company Name:</b></label>
+            <p class="form-control">{{ userDetails.company?.companyname || userDetails.companyname }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="primaryemail" class="form-label"><b>User Name:</b></label>
+            <p class="form-control">{{userDetails.userName}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="mainPerson" class="form-label"><b>Mobile Number:</b></label>
+            <p class="form-control">{{userDetails.mobile}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label"><b>Designation:</b></label>
+            <p class="form-control">{{userDetails.designation}}</p>
+          </div>
+          <div class="mb-3" *ngIf="isUser">
+            <label for="status" class="form-label"><b>Status:</b></label>
+            <p class="form-control">{{userDetails.status}}</p>
+          </div>
+          <!-- <div class="mb-3">
+              <label for="companyname" class="form-label"><b>Company Name:</b></label>
+              <p class="form-control">{{ userDetails.company?.companyname || userDetails.companyname }}</p>
+            </div>  -->
+        </div>
+      <div class="text-center mb-3">
+        <a  routerLink="/home" routerLinkActive="active" class="me-2">
+          <button type="button" class="btn btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Back
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

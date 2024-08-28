@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container-fluid login-page">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-md-6 col-lg-3">
+      <h2 class="text-center">Sign in</h2>
+      <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mt-2">
+          <label for="email">Email:</label>
+          <input type="text" id="email" class="form-control" placeholder="Enter Email" [(ngModel)]="user.email"
+            formControlName="email" required>
+          <div *ngIf="regForm.get('email').touched && regForm.get('email').hasError('required')" class="errortext text-danger">
+            Please Enter Email id
+          </div>
+          <div *ngIf="regForm.get('email').touched && regForm.get('email').hasError('pattern')" class="errortext text-danger">
+            Please Enter a valid Email id
+          </div>
+        </div>
+        <div class="form-group mt-1">
+          <label for="password">Password:</label>
+          <input type="password" id="password" class="form-control" placeholder="Enter Password" [(ngModel)]="user.password"
+            formControlName="password" required>
+          <div *ngIf="regForm.get('password').touched && regForm.get('password').hasError('required')" class="errortext text-danger">
+            Please Enter Password
+          </div>
+          <div *ngIf="regForm.get('password').touched && regForm.get('password').hasError('minlength')" class="errortext text-danger">
+            Password must be at least 6 characters long
+          </div>
+        </div>
+        <div class="register-link mt-3">
+          <a routerLink="/forgetpassword" routerLinkActive="active">Forgot Password?</a>
+        </div>
+        <button type="submit" class="mt-4 form-control btn btn-primary btn-block" [disabled]="regForm.invalid">Sign in</button>
+      </form>
+      <div class="register-link text-center mt-3">
+        Don't have an account? <a routerLink="/register" routerLinkActive="active">Signup</a>
+      </div>
+    </div>
+    <div class="col-md-6 d-none d-md-block">
+      <div class="image-container text-center">
+        <img src="assets/login-comp.png" alt="Login Image" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>

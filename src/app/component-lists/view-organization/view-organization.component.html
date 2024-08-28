@@ -1,0 +1,73 @@
+
+
+<div class="container mt-4 p-3">
+  <div class="card bg-body rounded">
+    <div class="card-body container-fluid">
+      
+      <div class="text-center mb-4">
+        <h2>View User Details</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="primaryName" class="form-label"><b>Company Code:</b></label>
+            <p class="form-control">{{organization.companyCode}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="primarymobile" class="form-label"><b>Corporate Identification Number:</b></label>
+            <p class="form-control">{{organization.cin}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="comTelephone" class="form-label"><b>Date of Incorporation:</b></label>
+            <p class="form-control">{{organization.dateOfIncorporation}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="comTelephone" class="form-label"><b>Contact Number:</b></label>
+            <p class="form-control">{{organization.contactNo}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="comTelephone" class="form-label"><b>Address:</b></label>
+            <p class="form-control">{{organization.address}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="comTelephone" class="form-label"><b>Pincode:</b></label>
+            <p class="form-control">{{organization.pincode}}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="primaryemail" class="form-label"><b>Comapny Name:</b></label>
+            <p class="form-control">{{organization.companyname}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="mainPerson" class="form-label"><b>Register Number:</b></label>
+            <p class="form-control">{{organization.registerNo}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label"><b>Company Email:</b></label>
+            <p class="form-control">{{organization.companyEmail}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="status" class="form-label"><b>Telephone Number:</b></label>
+            <p class="form-control">{{organization.telephone}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="comTelephone" class="form-label"><b>State:</b></label>
+            <p class="form-control">{{organization.state}}</p>
+          </div>
+          <div class="mb-3">
+            <label for="comTelephone" class="form-label"><b>Website:</b></label>
+            <p class="form-control">{{organization.website}}</p>
+          </div>
+        </div>
+      <div class="text-center mb-3">
+        <a href="#" routerLink="/org" routerLinkActive="active" class="me-2">
+          <button type="button" class="btn btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Back
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

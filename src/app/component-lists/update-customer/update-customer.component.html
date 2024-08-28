@@ -1,0 +1,106 @@
+<div class="container mt-4">
+  <div class="card bg-body rounded">
+    <div class="card-body container-fluid">
+      <div class="text-center mb-4">
+        <h2>Update Customer</h2>
+      </div>
+      <form (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="primaryName" class="form-label">Primary Name:</label>
+              <input id="primaryName" class="form-control" [(ngModel)]="customer.primaryName" name="primaryName" placeholder="Primary Name" required>
+            </div> 
+            <div class="mb-3">
+              <label for="primaryemail" class="form-label">Primary Email:</label>
+              <input id="primaryemail" class="form-control" [(ngModel)]="customer.primaryEmail" name="primaryEmail" placeholder="Primary Email" type="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="Primarymobile" class="form-label">Primary Mobile:</label>
+                <input id="Primarymobile" class="form-control" [(ngModel)]="customer.primaryMobile" name="primaryMobile" placeholder="Primary Mobile" required>
+              </div>
+              <div class="mb-3">
+                <label for="mainPerson" class="form-label">Main Person:</label>
+                <input id="mainPerson" class="form-control" [(ngModel)]="customer.mainPerson" name="mainPerson" placeholder="Main Person">
+              </div>
+              <div class="mb-3">
+                <label for="comTelephone" class="form-label">Company Telephone:</label>
+                <input id="comTelephone" class="form-control" [(ngModel)]="customer.comTelephone" name="comTelephone" placeholder="Company Telephone">
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <input id="address" class="form-control" [(ngModel)]="customer.address" name="address" placeholder="Address">
+              </div>
+              <div class="mb-3">
+                <label for="website" class="form-label">Website:</label>
+                <input id="website" class="form-control" [(ngModel)]="customer.website" name="website" placeholder="Website">
+              </div>       
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="secondaryName" class="form-label">Secondary Name:</label>
+              <input id="secondaryName" class="form-control" [(ngModel)]="customer.secondaryName" name="secondaryName" placeholder="Secondary Name">
+            </div>
+            <div class="mb-3">
+              <label for="Secondaryemail" class="form-label">Secondary Email:</label>
+              <input id="Secondaryemail" class="form-control" [(ngModel)]="customer.secondaryEmail" name="secondaryEmail" placeholder="Secondary Email" type="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="Secondarymobile" class="form-label">Secondary Mobile:</label>
+              <input id="Secondarymobile" class="form-control" [(ngModel)]="customer.secondaryMobile" name="secondaryMobile" placeholder="Secondary Mobile" required>
+            </div>
+            <div class="mb-3">
+              <label for="designation" class="form-label">Designation:</label>
+              <input id="designation" class="form-control" [(ngModel)]="customer.designation" name="designation"  placeholder="Designation">
+            </div> 
+            <div class="mb-3">
+              <label for="pan" class="form-label">PAN:</label>
+              <input id="pan" class="form-control" [(ngModel)]="customer.pan" name="pan" placeholder="PAN">
+            </div>
+            <div class="mb-3">
+              <label for="state" class="form-label">State:</label>
+              <input id="state" class="form-control" [(ngModel)]="customer.state" name="State" placeholder="State">
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="companyName" class="form-label">Company Name:</label>
+              <input id="companyName" class="form-control" [(ngModel)]="customer.companyName" name="companyName" placeholder="Company Name" required>
+            </div>
+            <div class="mb-3">
+              <label for="cin" class="form-label">CIN:</label>
+              <input id="cin" class="form-control" [(ngModel)]="customer.cin" name="cin" placeholder="CIN">
+            </div>
+            <div class="mb-3">
+              <label for="companyEmail" class="form-label">Company Email:</label>
+              <input id="companyEmail" class="form-control" [(ngModel)]="customer.companyEmail" name="companyEmail" placeholder="Company Email" type="email">
+            </div> 
+          <div class="mb-3">
+            <label for="contactNo" class="form-label">Contact No:</label>
+            <input id="contactNo" class="form-control" [(ngModel)]="customer.contactNo" name="contactNo" placeholder="Contact No">
+          </div>
+          <div class="mb-3">
+              <label for="gst" class="form-label">GST:</label>
+              <input id="gst" class="form-control" [(ngModel)]="customer.gst" name="gst"  placeholder="GST">
+            </div>
+            <div class="mb-3">
+              <label for="pincode" class="form-label">Pincode:</label>
+              <input id="pincode" class="form-control" [(ngModel)]="customer.pincode" name="pincode" placeholder="Pincode">
+            </div>  
+          </div>
+           
+        </div>
+        <div class="text-center mt-2 mb-3">
+          <button type="submit" class="btn btn-submit mr-1">Update</button>&nbsp;&nbsp;
+          <a href="#" routerLink="/customer" routerLinkActive="active" class="me-2">
+            <button type="button" class="btn btn-back">
+              <i class='bx bx-arrow-back'></i> Cancel
+            </button>
+          </a>
+
+        </div>
+      </form><br>
+    </div>
+  </div>
+</div>

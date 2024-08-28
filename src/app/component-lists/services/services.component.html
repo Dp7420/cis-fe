@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<!-- <body> -->
+  <div class="container mt-2">
+<div class="card mt-2 p-3 mb-1 bg-body rounded">
+  <div class="card-body container-fluid">
+    <div class="text-end">
+    <button type="button" id="addnew" class="btn btn-secondary" *ngIf="isAdmin">
+      <a class="navbar-brand text-light" href="#" routerLink="/add-service" routerLinkActive="active">
+        <i class="fa-solid fa-circle-plus"></i>&nbsp;Add New
+      </a>
+    </button></div>
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <h4 class="card-title">Services List:</h4>
+        <form class="d-flex">
+          <input [(ngModel)]="searchresults" name="searchresults" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+          <button class="btn btn-outline-info" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="table-secondary text-center">
+          <tr>
+            <th id="tablehead" scope="col">Services Name</th>
+            <th id="tablehead" scope="col">Services ShortName</th>
+            <th id="tablehead" scope="col">Category Name</th>
+            <!-- <th scope="col">Phone Number</th> -->
+            <!-- <th scope="col">Status Requests</th> -->
+            <th id="tablehead" scope="col">View</th>
+            <th id="tablehead" *ngIf="isAdmin" scope="col">Update</th>
+            <th id="tablehead" *ngIf="isAdmin" scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of services | filter:searchresults">
+            <td>{{ category.serviceName }}</td>
+            <td>{{ category.serviceShortName }}</td>
+            <td>{{ category.category.categoryName }}</td>
+            <!-- <td>{{ category.mobile }}</td> -->
+            <!-- <td>{{ user1.status }}</td> -->
+            <td class="text-center">
+                <span (click)="getServiceById(category.serviceId)" class=" text-primary"><strong style="font-size: 25px;">
+                    <i class="fa-regular fa-eye-slash"></i></strong>
+                </span>
+            </td>
+            <td class="text-center"  *ngIf="isAdmin">
+                <span (click)="updateService(category.serviceId)" class=" text-info ml-2" style="font-size: 24px;">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </span>
+              </td>
+              <td class="text-center"  *ngIf="isAdmin">
+                <span (click)="deleteService(category.serviceId)" class=" text-danger ml-2" style="font-size: 24px;">
+                  <i class="fa-solid fa-trash"></i>
+                </span>
+              </td>    
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+<!-- </body> -->

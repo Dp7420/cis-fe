@@ -1,0 +1,34 @@
+
+<div class="container mt-5">
+  <div class="card bg-body rounded">
+    <div class="card-body container-fluid">
+      <div class="text-center mb-4">
+        <h2>Update Corporate</h2>
+      </div>
+      <form (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label for="serviceName" class="form-label">Service Name:</label>
+              <input type="text" id="serviceName" class="form-control" name="serviceName" [(ngModel)]="services.serviceName" placeholder="Full Name" required>
+            </div>
+      
+            <div class="mb-3">
+              <label for="serviceShortName" class="form-label">Service Short Name:</label>
+              <input type="text" id="serviceShortName" class="form-control" name="serviceShortName" [(ngModel)]="services.serviceShortName" placeholder="Service Short Name" required>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-2 mb-3">
+          <button type="submit" class="btn btn-submit mr-1">Update</button>&nbsp;&nbsp;
+          <a href="#" routerLink="/service" routerLinkActive="active" class="me-2">
+            <button type="button" class="btn btn-back">
+              <i class='bx bx-arrow-back'></i> Cancel
+            </button>
+          </a>
+
+        </div>
+      </form><br>
+    </div>
+  </div>
+</div>

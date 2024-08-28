@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="p-4" style="width: 100%; max-width: 600px;">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <button routerLink="/service" routerLinkActive="active" class="btn btn-primary">
+        <i class="fa-solid fa-arrow-left"></i>&nbsp; Back
+      </button>
+      <h4 class="text-center flex-grow-1">Add Service</h4>
+    </div>
+
+    <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="Category" class="form-label">Category</label>
+        <select class="form-control" id="Category" formControlName="category" [(ngModel)]="selectedCategoryId" name="Category" (change)="onCategoryChange($event)">
+          <option value="" disabled>Select Category</option>
+          <option *ngFor="let category of category" [value]="category.categoryId">{{ category.categoryName }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="serviceName" class="form-label">Service Name:</label>
+        <input id="serviceName" class="form-control" name="serviceName" formControlName="serviceName" [(ngModel)]="services.serviceName" placeholder="Enter service Name" required>
+        <div class="text-danger">
+          <div  *ngIf="regForm.get('serviceName').touched && regForm.get('serviceName').hasError('required')">Service Name is required.</div>
+          <div *ngIf="regForm.get('serviceName').touched && regForm.get('serviceName').hasError('minlength')">Service Name must be at least 3 characters long.</div>
+          <div *ngIf="regForm.get('serviceName').touched && regForm.get('serviceName').hasError('maxlength')">Service Name cannot be more than 50 characters long.</div>
+          <div *ngIf="regForm.get('serviceName').touched && regForm.get('serviceName').hasError('pattern')">Service Name can only contain letters, numbers, and spaces.</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="serviceshortname" class="form-label">Service Short Name:</label>
+        <input id="serviceshortname" class="form-control" name="serviceshortname" formControlName="serviceShortName" [(ngModel)]="services.serviceShortName" placeholder="Service Short Name" required>
+          <div class="text-danger">
+            <div  *ngIf="regForm.get('serviceShortName').touched && regForm.get('serviceShortName').hasError('required')">Service Short Name is required.</div>
+            <div *ngIf="regForm.get('serviceShortName').touched && regForm.get('serviceShortName').hasError('minlength')">Service Short Name must be at least 2 characters long.</div>
+            <div *ngIf="regForm.get('serviceShortName').touched && regForm.get('serviceShortName').hasError('maxlength')">Service Short Name cannot be more than 50 characters long.</div>
+            <div *ngIf="regForm.get('serviceShortName').touched && regForm.get('serviceShortName').hasError('pattern')">Service Short Name can only contain letters and spaces.</div>
+          </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary" [disabled]="regForm.invalid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

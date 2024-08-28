@@ -1,0 +1,26 @@
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+form {
+  margin-top: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+.btn{
+  background-color: #595BD4;
+  color: #BDCAFF;
+  /* width: 20%; */
+}
+.btncolor{
+  background-color: #0015ff;
+  color: white;
+  width: 30%;
+}
+#register{
+  width: 20%;
+}

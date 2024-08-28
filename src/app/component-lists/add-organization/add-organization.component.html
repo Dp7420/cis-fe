@@ -1,0 +1,169 @@
+<div class="mt-5 container d-flex justify-content-center align-items-center">
+  <div class="row justify-content-center w-100">
+    <div class="col-12 col-md-10 col-lg-8">
+      <div class="h-100">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <button type="button" class="btn btn-primary" routerLink="/org" routerLinkActive="active">
+            <i class="fa-solid fa-arrow-left"></i>&nbsp; Back
+          </button>
+          <h4 class="card-title text-center flex-grow-1">Add Corporate</h4>
+        </div>
+
+        <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+          <div class="row justify-content-between">
+            <!-- Column 1 -->
+            <div class="col-md-5">
+              <div class="form-group mb-2">
+                <label for="companyCode" class="form-label">Company Code:</label>
+                <input id="companyCode" class="form-control" placeholder="Company Code" type="text" name="companyCode" formControlName="companyCode"
+                  [(ngModel)]="organization.companyCode" required>
+                <div *ngIf="regForm.get('companyCode').touched && regForm.get('companyCode').hasError('required')"
+                  class="text-danger">
+                  Enter Company Code
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="cin" class="form-label">Company Identification Number(CIN):</label>
+                <input type="text" id="cin" class="form-control" placeholder="Company Identification Number(CIN)" formControlName="cin"
+                  name="cin" [(ngModel)]="organization.cin" required>
+                <div *ngIf="regForm.get('cin').touched && regForm.get('cin').hasError('required')" class="text-danger">
+                  Enter CIN
+                </div>
+                <div
+                  *ngIf="regForm.get('cin').touched && (regForm.get('cin').hasError('minlength') || regForm.get('cin').hasError('maxlength'))"
+                  class="text-danger">
+                  Please enter a valid Corporate Identification Number.
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="registerNo" class="form-label">Register Number:</label>
+                <input type="text" id="registerNo" class="form-control" placeholder="Register Number" name="registerNo" formControlName="registerNo"
+                  [(ngModel)]="organization.registerNo" required>
+                <div *ngIf="regForm.get('registerNo').touched && regForm.get('registerNo').hasError('required')"
+                  class="text-danger">
+                  Enter Registration Number
+                </div>
+                <div
+                  *ngIf="regForm.get('registerNo').touched && (regForm.get('registerNo').hasError('minlength') || regForm.get('registerNo').hasError('maxlength'))"
+                  class="text-danger">
+                  Please enter a valid Registration Number.
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="contactNo" class="form-label">Contact Number:</label>
+                <input type="tel" id="contactNo" class="form-control" placeholder="Contact Number" name="contactNo" formControlName="contactNo"
+                  [(ngModel)]="organization.contactNo" required>
+                <div *ngIf="regForm.get('contactNo').touched && regForm.get('contactNo').hasError('required')"
+                  class="text-danger">
+                  Please enter a valid Phone Number.
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" id="address" class="form-control" placeholder="Address" name="address" formControlName="address"
+                  [(ngModel)]="organization.address" required>
+                <div *ngIf="regForm.get('address').touched && regForm.get('address').hasError('required')"
+                  class="text-danger">
+                  Enter Address
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="pincode" class="form-label">Pincode:</label>
+                <input type="text" id="pincode" class="form-control" placeholder="Pincode" name="pincode" formControlName="pincode"
+                  [(ngModel)]="organization.pincode" required>
+                <div *ngIf="regForm.get('pincode').touched && regForm.get('pincode').hasError('required')"
+                  class="text-danger">
+                  Enter PIN Code
+                </div>
+                <div
+                  *ngIf="regForm.get('pincode').touched && (regForm.get('pincode').hasError('minlength') || regForm.get('pincode').hasError('maxlength'))"
+                  class="text-danger">
+                  Please enter a valid PIN Code.
+                </div>
+              </div>
+            </div>
+            <!-- Column 2 -->
+            <div class="col-md-5">
+              <div class="form-group mb-2">
+                <label for="companyName" class="form-label">Company Name:</label>
+                <input id="companyName" class="form-control" placeholder="Company Name" type="text" name="companyname" formControlName="companyname"
+                  [(ngModel)]="organization.companyname" required>
+                <div *ngIf="regForm.get('companyname').touched && regForm.get('companyname').hasError('required')"
+                  class="text-danger">
+                  Enter Company Name
+                </div>
+                <div
+                  *ngIf="regForm.get('companyname').touched && (regForm.get('companyname').hasError('minlength') || regForm.get('companyname').hasError('maxlength'))"
+                  class="text-danger">
+                  Please enter a valid Company Name.
+                </div>
+                <div *ngIf="regForm.get('companyname').touched && regForm.get('companyname').hasError('pattern')"
+                  class="text-danger">
+                  Company Name can only contain letters and spaces.
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="dateOfIncorporation" class="form-label">Date of Incorporation:</label>
+                <input type="date" id="dateOfIncorporation" class="form-control" placeholder="Date of Incorporation" formControlName="dateOfIncorporation"
+                  name="dateOfIncorporation" [(ngModel)]="organization.dateOfIncorporation" required>
+                <div
+                  *ngIf="regForm.get('dateOfIncorporation').touched && regForm.get('dateOfIncorporation').hasError('required')"
+                  class="text-danger">
+                  Enter Incorporation Date
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="companyEmail" class="form-label">Company Email:</label>
+                <input id="companyEmail" class="form-control" placeholder="companyEmail" type="email" name="companyEmail" formControlName="companyEmail"
+                  [(ngModel)]="organization.companyEmail" required>
+                <div *ngIf="regForm.get('companyEmail').touched && regForm.get('companyEmail').hasError('required')"
+                  class="text-danger">
+                  Enter Email
+                </div>
+                <div *ngIf="regForm.get('companyEmail').touched && regForm.get('companyEmail').hasError('pattern')"
+                  class="text-danger">
+                  Please enter a valid Email Id.
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="Telephone" class="form-label">Telephone:</label>
+                <input id="Telephone" class="form-control" placeholder="Telephone" type="tel" name="telephone" formControlName="telephone"
+                  [(ngModel)]="organization.telephone" required>
+                <div *ngIf="regForm.get('telephone').touched && regForm.get('telephone').hasError('required')"
+                  class="text-danger">
+                  Enter Telephone Number
+                </div>
+                <div
+                  *ngIf="regForm.get('telephone').touched && (regForm.get('telephone').hasError('minlength') || regForm.get('telephone').hasError('maxlength'))"
+                  class="text-danger">
+                  Please enter a valid Telephone Number.
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="state" class="form-label">State:</label>
+                <input type="text" id="state" class="form-control" placeholder="State" name="state" formControlName="state"
+                  [(ngModel)]="organization.state" required>
+                <div *ngIf="regForm.get('state').touched && regForm.get('state').hasError('required')"
+                  class="text-danger">
+                  Enter State
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <label for="website" class="form-label">Website:</label>
+                <input id="website" class="form-control" placeholder="Website" type="url" name="website" formControlName="website"
+                  [(ngModel)]="organization.website" required>
+                <div *ngIf="regForm.get('website').touched && regForm.get('website').hasError('required')"
+                  class="text-danger">
+                  Enter Website
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-2 mt-4 text-center">
+            <button type="submit" class="btn btn-primary w-25">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

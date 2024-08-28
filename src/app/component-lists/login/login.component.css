@@ -1,0 +1,51 @@
+
+  
+  .form-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    text-align: center;
+    color: #595BD4;
+    font-weight: bolder;
+  }
+  
+  .register-link a {
+    color: #000000;
+    text-decoration: none;
+    /* font-weight: bold; */
+  }
+  
+  .register-link a:hover {
+    /* text-decoration: underline; */
+    color: #0015FF;
+  }
+  
+  .image-container img {
+    max-width: 70%;
+    height: auto;
+    margin-right: -33%;
+  }
+  button{
+    background-color: #0015FF;
+  }
+  
+  input.ng-touched.ng-invalid{
+    border: 2px solid red;
+  }
+  input.ng-touched.ng-valid{
+    border: 2px solid green;
+  }
+  
+  select.ng-touched.ng-invalid{
+    border: 2px solid red;
+  }
+  select.ng-touched.ng-valid{
+    border: 2px solid green;
+  }

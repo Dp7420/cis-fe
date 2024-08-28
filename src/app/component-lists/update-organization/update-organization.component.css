@@ -1,0 +1,101 @@
+
+
+
+.card {
+    border-radius: 1rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border: none;
+    background: linear-gradient(135deg, #b1d3ea, #c6e0f2);
+  }
+  
+  .card-title {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .form-control {
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .btn-back {
+    background-color: white;
+    border-color: rgb(5, 0, 221);
+    color: rgb(5, 0, 221);
+    font-weight: bold;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .btn-back:hover {
+    background-color: rgb(5, 0, 221);
+    color: white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-submit {
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(5, 0, 221);
+    border-color: #007bff;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .btn-submit:hover {
+    background-color: white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    color: rgb(5, 0, 221);
+  }
+  
+  .d-flex {
+    display: flex;
+  }
+  
+  .collapsed .content-area {
+    margin-left: 80px;
+    transition: margin-left 0.3s;
+  }
+  
+  .content-area {
+    margin-left: 250px;
+    transition: margin-left 0.3s;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-end {
+    text-align: end;
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1.5rem;
+    }
+  
+    .content-area {
+      margin-left: 0;
+    }
+  }

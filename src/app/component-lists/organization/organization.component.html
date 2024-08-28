@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<!-- <body> -->
+  <div class="container mt-2">
+<div class="card mt-2 p-3 mb-1 bg-body rounded">
+  <div class="card-body container-fluid">
+    <div class="text-end">
+    <button type="button" id="addnew" class="btn btn-secondary" *ngIf="isAdmin">
+      <a class="navbar-brand text-light" href="#" routerLink="/add-org" routerLinkActive="active">
+        <i class="fa-solid fa-circle-plus"></i>&nbsp;Add New
+      </a>
+    </button></div>
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <h4 class="card-title">Corporate List:</h4>
+        <form class="d-flex">
+          <input [(ngModel)]="searchresults" name="searchresults" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+          <button class="btn btn-outline-info" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="table-secondary text-center">
+          <tr>
+            <th id="tablehead" scope="col">Company Name</th>
+            <th id="tablehead" scope="col">Email</th>
+            <th id="tablehead" scope="col">Contact Number</th>
+            <!-- <th scope="col">Status Requests</th> -->
+            <th id="tablehead" scope="col">View</th>
+            <th id="tablehead" *ngIf="isAdmin" scope="col">Update</th>
+            <th id="tablehead" *ngIf="isAdmin" scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let organizations of organization | filter:searchresults">
+            <td>{{ organizations.companyname }}</td>
+            <td>{{ organizations.companyEmail }}</td>
+            <td>{{ organizations.contactNo }}</td>
+            <!-- <td>{{ user1.status }}</td> -->
+            <td class="text-center">
+                <span (click)="getOrganizationById(organizations.companyId)" class=" text-primary"><strong style="font-size: 25px;">
+                    <i class="fa-regular fa-eye-slash"></i></strong>
+                </span>
+            </td>
+            <td class="text-center"  *ngIf="isAdmin">
+                <span (click)="upadateOrganization(organizations.companyId)" class=" text-info ml-2" style="font-size: 24px;">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </span>
+              </td>
+              <td class="text-center"  *ngIf="isAdmin">
+                <span (click)="deleteOrganization(organizations.companyId)" class=" text-danger ml-2" style="font-size: 24px;">
+                  <i class="fa-solid fa-trash"></i>
+                </span>
+              </td>    
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+<!-- </body> -->

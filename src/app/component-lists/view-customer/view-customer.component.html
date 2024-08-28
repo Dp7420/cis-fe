@@ -1,0 +1,122 @@
+<div class="container mt-4 p-3">
+    <div class="card bg-body rounded">
+      <div class="card-body container-fluid">
+        <div class="text-center mb-4">
+          <h2>View Customer Details</h2>
+        </div>
+        <div class="row">
+          <!-- Column 1 -->
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="primaryName" class="form-label"><b>Primary Name:</b></label>
+              <p class="form-control">{{customer.primaryName}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="primaryemail" class="form-label"><b>Primary Email:</b></label>
+              <p class="form-control">{{customer.primaryEmail}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="primarymobile" class="form-label"><b>Primary Mobile:</b></label>
+              <p class="form-control">{{customer.primaryMobile}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="mainPerson" class="form-label"><b>Main Person:</b></label>
+              <p class="form-control">{{customer.mainPerson}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="comTelephone" class="form-label"><b>Company Telephone:</b></label>
+              <p class="form-control">{{customer.comTelephone}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label"><b>Address:</b></label>
+              <p class="form-control">{{customer.address}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="website" class="form-label"><b>Website:</b></label>
+              <p class="form-control">{{customer.website}}</p>
+            </div>
+          </div>
+  
+          <!-- Column 2 -->
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="secondaryName" class="form-label"><b>Secondary Name:</b></label>
+              <p class="form-control">{{customer.secondaryName}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="secondaryemail" class="form-label"><b>Secondary Email:</b></label>
+              <p class="form-control">{{customer.secondaryEmail}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="secondarymobile" class="form-label"><b>Secondary Mobile:</b></label>
+              <p class="form-control">{{customer.secondaryMobile}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="designation" class="form-label"><b>Designation:</b></label>
+              <p class="form-control">{{customer.designation}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="pan" class="form-label"><b>PAN:</b></label>
+              <p class="form-control">{{customer.pan}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="state" class="form-label"><b>State:</b></label>
+              <p class="form-control">{{customer.state}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="serviceName" class="form-label"><b>Category:</b></label>
+              <ul class="list-group">
+                <li class="list-group-item" *ngFor="let service of customer.services">
+                  {{ service.category.categoryName }}
+                </li>
+              </ul>
+            </div>
+          </div>
+  
+          <!-- Column 3 -->
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="companyName" class="form-label"><b>Company Name:</b></label>
+              <p class="form-control">{{customer.companyName}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="cin" class="form-label"><b>CIN:</b></label>
+              <p class="form-control">{{customer.cin}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="companyEmail" class="form-label"><b>Company Email:</b></label>
+              <p class="form-control">{{customer.companyEmail}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="contactNo" class="form-label"><b>Contact No:</b></label>
+              <p class="form-control">{{customer.contactNo}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="gst" class="form-label"><b>GST:</b></label>
+              <p class="form-control">{{customer.gst}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="pincode" class="form-label"><b>Pincode:</b></label>
+              <p class="form-control">{{customer.pincode}}</p>
+            </div>
+            <div class="mb-3">
+              <label for="serviceName" class="form-label"><b>Services:</b></label>
+              <ul class="list-group">
+                <li class="list-group-item" *ngFor="let service of customer.services">
+                  {{ service.serviceName }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mb-3">
+          <a href="#" routerLink="/customer" routerLinkActive="active" class="me-2">
+            <button type="button" class="btn btn-back">
+              <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

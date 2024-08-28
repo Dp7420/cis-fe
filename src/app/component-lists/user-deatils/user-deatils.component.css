@@ -1,0 +1,35 @@
+
+@media (max-width: 768px) {
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    .table-responsive th,
+    .table-responsive td {
+      white-space: nowrap;
+    }
+
+    .table thead th {
+      position: sticky;
+      top: 0;
+      background-color: #343a40; /* Matches .table-dark background color */
+      z-index: 1;
+    }
+
+    .table-responsive td button {
+      white-space: nowrap;
+    }
+
+    .table td {
+      text-align: center;
+    }
+  }
+
+  #tablehead{
+    background-color: #23606c;
+    color: white;
+ }
+
+ .card{
+  background: linear-gradient(to bottom, #ffffff, #BDCAFF);
+}
